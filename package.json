@@ -5,7 +5,7 @@
   "description": "Authorization package for roles and permissions with super roles to use in Vue.js with Inertia.js",
   "repository": {
       "type": "git",
-      "url": "https://github.com/mahmoud-faisal-hub/authorization-for-inertia-vue.git"
+      "url": "https://github.com/mahmoud-faisal-hub/authorization-for-laravel-inertia-vue.git"
   },
   "keywords": [
     "vue",
