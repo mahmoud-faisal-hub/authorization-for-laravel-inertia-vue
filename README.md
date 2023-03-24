@@ -97,14 +97,14 @@ Permissions:
 
 Roles
 
-[is & hasRole](#check-for-a-single-role:) - 
-[isNot & unlessRole](#check-if-user-does-not-has-role:) - 
-[isAny & hasAnyRole](#check-if-user-has-any-of-the-provided-roles:) - 
-[isNotAny & unlessAnyRole](#check-if-user-does-not-has-any-of-the-provided-roles:) - 
-[isAll & hasAllRoles](#check-if-user-has-all-of-the-provided-role:) - 
-[isNotAll & unlessAllRoles](#check-if-user-does-not-has-all-of-the-provided-role:) - 
-[isExact & hasExactRoles](#check-if-user-has-exactly-all-of-a-given-list-of-roles:) - 
-[hasNoRoles](#check-if-user-has-no-roles:) - 
+[is & hasRole](#check-for-a-single-role) - 
+[isNot & unlessRole](#check-if-user-does-not-has-role) - 
+[isAny & hasAnyRole](#check-if-user-has-any-of-the-provided-roles) - 
+[isNotAny & unlessAnyRole](#check-if-user-does-not-has-any-of-the-provided-roles) - 
+[isAll & hasAllRoles](#check-if-user-has-all-of-the-provided-role) - 
+[isNotAll & unlessAllRoles](#check-if-user-does-not-has-all-of-the-provided-role) - 
+[isExact & hasExactRoles](#check-if-user-has-exactly-all-of-a-given-list-of-roles) - 
+[hasNoRoles](#check-if-user-has-no-roles) - 
 
 ## Documentation
 
