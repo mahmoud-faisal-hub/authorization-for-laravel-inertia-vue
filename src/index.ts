@@ -1,29 +1,30 @@
+import type { App } from 'vue';
 import { usePage } from "@inertiajs/vue3";
 
 export default {
-    install: (app, options) => {
+    install: (app: App) => {
         // Permissions Global Properties
-        app.config.globalProperties.can = (value) => { return can(value) };
-        app.config.globalProperties.canNot = (value) => { return canNot(value) };
-        app.config.globalProperties.canAny = (value) => { return canAny(value) };
-        app.config.globalProperties.canNotAny = (value) => { return canNotAny(value) };
-        app.config.globalProperties.canAll = (value) => { return canAll(value) };
-        app.config.globalProperties.canNotAll = (value) => { return canNotAll(value) };
+        app.config.globalProperties.can = (value: String) => { return can(value) };
+        app.config.globalProperties.canNot = (value: String) => { return canNot(value) };
+        app.config.globalProperties.canAny = (value: String|Array<String>) => { return canAny(value) };
+        app.config.globalProperties.canNotAny = (value: String|Array<String>) => { return canNotAny(value) };
+        app.config.globalProperties.canAll = (value: String|Array<String>) => { return canAll(value) };
+        app.config.globalProperties.canNotAll = (value: String|Array<String>) => { return canNotAll(value) };
         app.config.globalProperties.guest = app.config.globalProperties.hasNoPermissions = () => { return guest() };
 
         // Roles Global Properties
-        app.config.globalProperties.is = app.config.globalProperties.hasRole = (value) => { return is(value) };
-        app.config.globalProperties.isNot = app.config.globalProperties.unlessRole = (value) => { return isNot(value) };
-        app.config.globalProperties.isAny = app.config.globalProperties.hasAnyRole = (value) => { return isAny(value) };
-        app.config.globalProperties.isNotAny = app.config.globalProperties.unlessAnyRole = (value) => { return isNotAny(value) };
-        app.config.globalProperties.isAll = app.config.globalProperties.hasAllRoles = (value) => { return isAll(value) };
-        app.config.globalProperties.isNotAll = app.config.globalProperties.unlessAllRoles = (value) => { return isNotAll(value) };
-        app.config.globalProperties.isExact = app.config.globalProperties.hasExactRoles = (value) => { return isExact(value) };
+        app.config.globalProperties.is = app.config.globalProperties.hasRole = (value: String) => { return is(value) };
+        app.config.globalProperties.isNot = app.config.globalProperties.unlessRole = (value: String) => { return isNot(value) };
+        app.config.globalProperties.isAny = app.config.globalProperties.hasAnyRole = (value: String|Array<String>) => { return isAny(value) };
+        app.config.globalProperties.isNotAny = app.config.globalProperties.unlessAnyRole = (value: String|Array<String>) => { return isNotAny(value) };
+        app.config.globalProperties.isAll = app.config.globalProperties.hasAllRoles = (value: String|Array<String>) => { return isAll(value) };
+        app.config.globalProperties.isNotAll = app.config.globalProperties.unlessAllRoles = (value: String|Array<String>) => { return isNotAll(value) };
+        app.config.globalProperties.isExact = app.config.globalProperties.hasExactRoles = (value: String|Array<String>) => { return isExact(value) };
         app.config.globalProperties.hasNoRoles = () => { return hasNoRoles() };
     },
 };
 
-const can = (value) => {
+const can = (value: String): Boolean => {
     if (typeof value !== 'string') {
         throw new Error('Please pass only string value');
     };
@@ -32,6 +33,7 @@ const can = (value) => {
         return true;
     }
 
+    // @ts-ignore
     let permissions = usePage().props.auth? (usePage().props.auth.permissions?? []) : [];
 
     if (emptyArray(permissions)) {
@@ -45,9 +47,9 @@ const can = (value) => {
     return false;
 }
 
-const canNot = (value) => { return !can(value) }
+const canNot = (value: String): Boolean => { return !can(value) }
 
-const canAny = (value) => {
+const canAny = (value: String|Array<String>): Boolean => {
     if (typeof value !== 'string' && !Array.isArray(value)) {
         throw new Error('Please pass only string or array value');
     };
@@ -56,6 +58,7 @@ const canAny = (value) => {
         return true;
     }
 
+    // @ts-ignore
     let permissions = usePage().props.auth? (usePage().props.auth.permissions?? []) : [];
 
     if (emptyArray(permissions)) {
@@ -90,9 +93,9 @@ const canAny = (value) => {
     return _return;
 }
 
-const canNotAny = (value) => { return !canAny(value) }
+const canNotAny = (value: String|Array<String>): Boolean => { return !canAny(value) }
 
-const canAll = (value) => {
+const canAll = (value: String|Array<String>): Boolean => {
     if (typeof value !== 'string' && !Array.isArray(value)) {
         throw new Error('Please pass only string or array value');
     };
@@ -101,6 +104,7 @@ const canAll = (value) => {
         return true;
     }
 
+    // @ts-ignore
     let permissions = usePage().props.auth? (usePage().props.auth.permissions?? []) : [];
 
     if (emptyArray(permissions)) {
@@ -133,14 +137,15 @@ const canAll = (value) => {
     return _return;
 }
 
-const canNotAll = (value) => { return !canAll(value) }
+const canNotAll = (value: String|Array<String>): Boolean => { return !canAll(value) }
 
-let guest, hasNoPermissions;
-guest = hasNoPermissions = () => {
+let guest: () => Boolean, hasNoPermissions: () => Boolean;
+guest = hasNoPermissions = (): Boolean => {
     if (hasSuperRole()) {
         return false;
     }
 
+    // @ts-ignore
     let permissions = usePage().props.auth? (usePage().props.auth.permissions?? []) : [];
 
     if (emptyArray(permissions)) {
@@ -150,12 +155,13 @@ guest = hasNoPermissions = () => {
     return false;
 }
 
-let is, hasRole;
+let is: (value:String|Array<String>) => Boolean, hasRole: (value:String|Array<String>) => Boolean;
 is = hasRole = (value) => {
     if (typeof value !== 'string') {
         throw new Error('Please pass only string value');
     };
 
+    // @ts-ignore
     let roles = usePage().props.auth? (usePage().props.auth.roles?? []) : [];
 
     if (emptyArray(roles)) {
@@ -169,15 +175,16 @@ is = hasRole = (value) => {
     return false;
 }
 
-let isNot, unlessRole;
+let isNot: (value:String|Array<String>) => Boolean, unlessRole: (value:String|Array<String>) => Boolean;
 isNot = unlessRole = (value) => { return !is(value) }
 
-let isAny, hasAnyRole;
+let isAny: (value:String|Array<String>) => Boolean, hasAnyRole: (value:String|Array<String>) => Boolean;
 isAny = hasAnyRole = (value) => {
     if (typeof value !== 'string' && !Array.isArray(value)) {
         throw new Error('Please pass only string or array value');
     };
 
+    // @ts-ignore
     let roles = usePage().props.auth? (usePage().props.auth.roles?? []) : [];
 
     if (emptyArray(roles)) {
@@ -212,15 +219,16 @@ isAny = hasAnyRole = (value) => {
     return _return;
 }
 
-let isNotAny, unlessAnyRole;
+let isNotAny: (value:String|Array<String>) => Boolean, unlessAnyRole: (value:String|Array<String>) => Boolean;
 isNotAny = unlessAnyRole = (value) => { return !isAny(value) }
 
-let isAll, hasAllRoles;
+let isAll: (value:String|Array<String>) => Boolean, hasAllRoles: (value:String|Array<String>) => Boolean;
 isAll = hasAllRoles = (value) => {
     if (typeof value !== 'string' && !Array.isArray(value)) {
         throw new Error('Please pass only string or array value');
     };
 
+    // @ts-ignore
     let roles = usePage().props.auth? (usePage().props.auth.roles?? []) : [];
 
     if (emptyArray(roles)) {
@@ -253,15 +261,16 @@ isAll = hasAllRoles = (value) => {
     return _return;
 }
 
-let isNotAll, unlessAllRoles;
+let isNotAll: (value:String|Array<String>) => Boolean, unlessAllRoles: (value:String|Array<String>) => Boolean;
 isNotAll = unlessAllRoles = (value) => { return !isAll(value) }
 
-let isExact, hasExactRoles;
+let isExact: (value:String|Array<String>) => Boolean, hasExactRoles: (value:String|Array<String>) => Boolean;
 isExact = hasExactRoles = (value) => {
     if (!Array.isArray(value)) {
         throw new Error('Please pass only array value');
     };
 
+    // @ts-ignore
     let roles = usePage().props.auth? (usePage().props.auth.roles?? []) : [];
 
     if (emptyArray(roles)) {
@@ -281,7 +290,8 @@ isExact = hasExactRoles = (value) => {
     return false;
 }
 
-const hasNoRoles = () => {
+const hasNoRoles = (): Boolean => {
+    // @ts-ignore
     let roles = usePage().props.auth? (usePage().props.auth.roles?? []) : [];
 
     if (emptyArray(roles)) {
@@ -291,7 +301,7 @@ const hasNoRoles = () => {
     return false;
 }
 
-const emptyArray = (arr) => {
+const emptyArray = (arr: Array<any>): Boolean => {
     if (Array.isArray(arr) && arr.length > 0) {
         return false;
     }
@@ -299,11 +309,13 @@ const emptyArray = (arr) => {
     return true;
 }
 
-const hasSuperRole = () => {
+const hasSuperRole = (): Boolean => {
+    // @ts-ignore
     let roles = usePage().props.auth? (usePage().props.auth.roles?? []) : [];
     let superRoles = usePage().props.superRoles?? [];
 
-    if (!emptyArray(roles) && !emptyArray(superRoles) && roles.some((item) => superRoles.includes(item))) {
+    // @ts-ignore
+    if (!emptyArray(roles) && !emptyArray(superRoles) && roles.some((item: String) => superRoles.includes(item))) {
         return true;
     }
 
