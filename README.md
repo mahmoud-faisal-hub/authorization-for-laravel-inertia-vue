@@ -29,17 +29,17 @@ Authorization For Laravel Inertia Vue is a js package to check for the logged in
   <!-- Do something -->
 </div>
 
+<!-- Check if the user has all the permission in a given array -->
+<div v-if="canAll(['create post', 'publish post'])">
+  <!-- Do something -->
+</div>
+
 <!-- Check if the user has any role in given a array -->
 <div v-if="isAny(['writer', 'editor'])">
   <!-- Do something -->
 </div>
 <!-- OR -->
 <div v-if="hasAnyRole('create post | edit post | delete post'])">
-  <!-- Do something -->
-</div>
-
-<!-- Check if the user has all the permission in a given array -->
-<div v-if="canAll(['create post', 'publish post'])">
   <!-- Do something -->
 </div>
 
