@@ -104,7 +104,7 @@ Roles
 [isAll & hasAllRoles](#check-if-user-has-all-of-the-provided-role) - 
 [isNotAll & unlessAllRoles](#check-if-user-does-not-has-all-of-the-provided-role) - 
 [isExact & hasExactRoles](#check-if-user-has-exactly-all-of-a-given-list-of-roles) - 
-[hasNoRoles](#check-if-user-has-no-roles) - 
+[hasNoRoles](#check-if-user-has-no-roles)
 
 ## Documentation
 
