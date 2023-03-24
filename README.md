@@ -87,13 +87,13 @@ And now you are good to go 🚀.
 ## Section Links
 Permissions:
 
-[can](#check-for-a-single-permission:) - 
-[canNot](#check-if-user-does-not-has-permission:) - 
-[canAny](#check-if-user-has-any-of-the-provided-permissions:) -
-[canNotAny](#check-if-user-does-NOT-has-any-of-the-provided-permissions:) - 
-[canAll](#check-if-user-has-all-of-the-provided-permissions:) -
-[canNotAll](#check-if-user-does-not-has-all-of-the-provided-permissions:) -
-[guest](#check-if-user-is-a-guest-and-do-not-has-any-permission:)
+[can](#check-for-a-single-permission) - 
+[canNot](#check-if-user-does-not-has-permission) - 
+[canAny](#check-if-user-has-any-of-the-provided-permissions) -
+[canNotAny](#check-if-user-does-NOT-has-any-of-the-provided-permissions) - 
+[canAll](#check-if-user-has-all-of-the-provided-permissions) -
+[canNotAll](#check-if-user-does-not-has-all-of-the-provided-permissions) -
+[guest](#check-if-user-is-a-guest-and-do-not-has-any-permission)
 
 Roles
 
