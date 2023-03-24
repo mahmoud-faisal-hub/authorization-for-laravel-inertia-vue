@@ -22,6 +22,7 @@
   "files": [
     "/dist"
   ],
+  "type": "module",
   "main": "./dist/authorization-for-laravel-inertia-vue.umd.js",
   "module": "./dist/authorization-for-laravel-inertia-vue.es.js",
   "exports": {
@@ -30,6 +31,7 @@
       "require": "./dist/authorization-for-laravel-inertia-vue.umd.js"
     }
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
