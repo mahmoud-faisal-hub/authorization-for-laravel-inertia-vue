@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "author": "Mahmoud Faisal <dev.mahmoudfaisal@gmail.com>",
   "description": "Authorization package for roles and permissions with super roles to use in Vue.js with Inertia.js",
-  "homepage": "",
   "repository": {
       "type": "git",
-      "name": "",
-      "url": ""
+      "url": "https://github.com/mahmoud-faisal-hub/authorization-for-inertia-vue.git"
   },
   "keywords": [
     "vue",
