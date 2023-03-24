@@ -52,7 +52,7 @@ Authorization For Laravel Inertia Vue is a js package to check for the logged in
 ## Installation
 
 ```bash
-npm install 
+npm install authorization-for-laravel-inertia-vue
 ```
 
 ## Configuration
