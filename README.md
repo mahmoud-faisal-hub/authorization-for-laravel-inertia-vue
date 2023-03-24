@@ -296,5 +296,5 @@ if (can('edit post')) {
 </div>
 ```
 
-## Licence
-[MIT](./LICENCE.md)
+## License
+[MIT](./LICENSE.md)
