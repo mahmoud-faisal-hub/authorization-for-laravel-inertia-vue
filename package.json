@@ -1,5 +1,5 @@
 {
-  "name": "authorization-in-inertia-vue",
+  "name": "authorization-for-laravel-inertia-vue",
   "version": "0.0.1",
   "author": "Mahmoud Faisal <dev.mahmoudfaisal@gmail.com>",
   "description": "Authorization package for roles and permissions with super roles to use in Vue.js with Inertia.js",
@@ -12,8 +12,7 @@
   "keywords": [
     "vue",
     "vue3",
-    "authorization-in-inertia-vue",
-    "authorization-for-inertia-vue",
+    "authorization-for-laravel-inertia-vue",
     "authorization-checks",
     "authorization",
     "permissions",
@@ -25,12 +24,12 @@
   "files": [
     "/dist"
   ],
-  "main": "./dist/authorization-in-inertia-vue.umd.js",
-  "module": "./dist/authorization-in-inertia-vue.es.js",
+  "main": "./dist/authorization-for-laravel-inertia-vue.umd.js",
+  "module": "./dist/authorization-for-laravel-inertia-vue.es.js",
   "exports": {
     ".": {
-      "import": "./dist/authorization-in-inertia-vue.es.js",
-      "require": "./dist/authorization-in-inertia-vue.umd.js"
+      "import": "./dist/authorization-for-laravel-inertia-vue.es.js",
+      "require": "./dist/authorization-for-laravel-inertia-vue.umd.js"
     }
   },
   "peerDependencies": {

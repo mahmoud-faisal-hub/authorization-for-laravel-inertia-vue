@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
-      name: 'authorization-in-inertia-vue',
-      fileName: (format) => `authorization-in-inertia-vue.${format}.js`,
+      name: 'authorization-for-laravel-inertia-vue',
+      fileName: (format) => `authorization-for-laravel-inertia-vue.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', '@inertiajs/vue3'],
