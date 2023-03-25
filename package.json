@@ -1,6 +1,6 @@
 {
   "name": "authorization-for-laravel-inertia-vue",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "author": "Mahmoud Faisal <dev.mahmoudfaisal@gmail.com>",
   "description": "Authorization package for roles and permissions with super roles to use in Vue.js with Inertia.js",
   "repository": {
