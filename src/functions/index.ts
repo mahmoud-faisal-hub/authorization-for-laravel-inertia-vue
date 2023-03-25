@@ -9,8 +9,8 @@ export { default as hasNoPermissions } from './permissions/hasNoPermissions';
 export { default as guest } from './permissions/hasNoPermissions';
 
 // Roles Functions Exports
-export { default as isSuper } from './permissions/hasSuperRole';
-export { default as hasSuperRole } from './permissions/hasSuperRole';
+export { default as isSuper } from './roles/hasSuperRole';
+export { default as hasSuperRole } from './roles/hasSuperRole';
 export { default as is } from './roles/is';
 export { default as hasRole } from './roles/is';
 export { default as isNot } from './roles/isNot';

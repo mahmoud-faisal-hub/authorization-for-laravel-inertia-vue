@@ -1,4 +1,5 @@
 import { usePage } from "@inertiajs/vue3";
+import { emptyArray } from "@/helpers"
 
 const hasSuperRole = (): Boolean => {
     // @ts-ignore
