@@ -21,5 +21,7 @@ export default {
         app.config.globalProperties.isNotAll = app.config.globalProperties.unlessAllRoles = (value: String|Array<String>) => { return auth.isNotAll(value) };
         app.config.globalProperties.isExact = app.config.globalProperties.hasExactRoles = (value: String|Array<String>) => { return auth.isExact(value) };
         app.config.globalProperties.hasNoRoles = () => { return auth.hasNoRoles() };
+        app.config.globalProperties.isSuper = app.config.globalProperties.hasSuperRole = () => { return auth.isSuper() };
+        app.config.globalProperties.isNotSuper = app.config.globalProperties.unlessSuperRole = () => { return auth.isNotSuper() };
     },
 };
