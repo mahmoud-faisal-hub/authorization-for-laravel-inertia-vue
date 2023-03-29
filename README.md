@@ -106,7 +106,7 @@ Roles
 [isExact & hasExactRoles](#check-if-user-has-exactly-all-of-a-given-list-of-roles) - 
 [hasNoRoles](#check-if-user-has-no-roles) -
 [isSuper & hasSuperRole](#check-if-user-has-super-role) -
-[isNotSuper & unlessSuperRole](#check-if-user-has-no-super-role) -
+[isNotSuper & unlessSuperRole](#check-if-user-has-no-super-role)
 
 ## Documentation
 
