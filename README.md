@@ -57,7 +57,7 @@ npm install authorization-for-laravel-inertia-vue
 
 ## Configuration
 
-First, return the `roles` and `permissions` of the logged in user and the defined `superRules` in the `HandleInertiaRequests.php` file in `app\Http\Middleware\HandleInertiaRequests.php` in the `share` method:
+First, return the `roles` and `permissions` of the logged in user and the defined `superRules` in the `HandleInertiaRequests.php` file in `app\Http\Middleware\HandleInertiaRequests.php` in the [`share`](https://inertiajs.com/shared-data) method of [inertia](https://inertiajs.com/):
 ```php
 public function share(Request $request): array
 {
@@ -104,7 +104,9 @@ Roles
 [isAll & hasAllRoles](#check-if-user-has-all-of-the-provided-role) - 
 [isNotAll & unlessAllRoles](#check-if-user-does-not-has-all-of-the-provided-role) - 
 [isExact & hasExactRoles](#check-if-user-has-exactly-all-of-a-given-list-of-roles) - 
-[hasNoRoles](#check-if-user-has-no-roles)
+[hasNoRoles](#check-if-user-has-no-roles) -
+[isSuper & hasSuperRole](#check-if-user-has-super-role) -
+[isNotSuper & unlessSuperRole](#check-if-user-has-no-super-role) -
 
 ## Documentation
 
@@ -292,6 +294,34 @@ if (can('edit post')) {
 ```html
 <!-- Check if the user has no roles -->
 <div v-if="hasNoRoles()">
+  <!-- Do something -->
+</div>
+```
+
+### Check if user has **SUPER ROLE**:
+
+```html
+<!-- Check if the user has any super role -->
+<div v-if="isSuper()">
+  <!-- Do something -->
+</div>
+
+<!-- Or -->
+<div v-if="hasSuperRole()">
+  <!-- Do something -->
+</div>
+```
+
+### Check if user has **NO** **SUPER ROLE**:
+
+```html
+<!-- Check if the user has not any super role -->
+<div v-if="isNotSuper()">
+  <!-- Do something -->
+</div>
+
+<!-- Or -->
+<div v-if="unlessSuperRole()">
   <!-- Do something -->
 </div>
 ```
